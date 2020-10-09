@@ -2,7 +2,6 @@ package gk.menu;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.joining;
 
@@ -19,7 +18,7 @@ public class Menu {
         return names.stream().map(MenuItem::toString).collect(joining("\n"));
     }
 
-    public void addSubmenu(SubMenu submenu) {
+    public void addItemFolder(MenuItemFolder itemFolder) {
 
     }
 }
