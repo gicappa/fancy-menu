@@ -34,13 +34,13 @@ public class MenuTest {
         assertEquals("item1\nitem2", menu.toString());
     }
 
-    //    @Test
+    @Test
     public void it_should_return_two_menu_item() {
         menu.addItem(new MenuItem("item1"));
         menu.addItem(new MenuItem("item2"));
-        menu.addSubmenu("submenu", "subitem1");
+        menu.addSubmenu(new SubMenu("submenu"));
 
-        assertEquals("item1\nitem2\nsubmenu\n\tsubitem1", menu.toString());
+        assertEquals("item1\nitem2\n - submenu", menu.toString());
     }
 }
 

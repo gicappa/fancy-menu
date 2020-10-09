@@ -19,7 +19,7 @@ public class Menu {
         return names.stream().map(MenuItem::toString).collect(joining("\n"));
     }
 
-    public void addSubmenu(String submenu, String subitem) {
+    public void addSubmenu(SubMenu submenu) {
 
     }
 }
