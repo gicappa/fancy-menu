@@ -21,23 +21,23 @@ public class MenuTest {
 
     @Test
     public void it_should_return_a_menu_item_name() {
-        menu.addItem("my item name");
+        menu.addItem(new MenuItem("my item name"));
 
         assertEquals("my item name", menu.toString());
     }
 
     @Test
     public void it_should_return_two_menu_item_name() {
-        menu.addItem("item1");
-        menu.addItem("item2");
+        menu.addItem(new MenuItem("item1"));
+        menu.addItem(new MenuItem("item2"));
 
         assertEquals("item1\nitem2", menu.toString());
     }
 
     //    @Test
     public void it_should_return_two_menu_item() {
-        menu.addItem("item1");
-        menu.addItem("item2");
+        menu.addItem(new MenuItem("item1"));
+        menu.addItem(new MenuItem("item2"));
         menu.addSubmenu("submenu", "subitem1");
 
         assertEquals("item1\nitem2\nsubmenu\n\tsubitem1", menu.toString());

@@ -2,23 +2,24 @@ package gk.menu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static java.lang.String.join;
+import static java.util.stream.Collectors.joining;
 
 public class Menu {
 
-    private final List<String> names = new ArrayList<>();
+    private final List<MenuItem> names = new ArrayList<>();
 
-    public void addItem(String name) {
+    public void addItem(MenuItem name) {
         this.names.add(name);
     }
 
     @Override
     public String toString() {
-        return join("\n", names);
+        return names.stream().map(MenuItem::toString).collect(joining("\n"));
     }
 
     public void addSubmenu(String submenu, String subitem) {
-        
+
     }
 }
