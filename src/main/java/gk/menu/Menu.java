@@ -21,9 +21,8 @@ public class Menu {
         return item.traverse(this::printMenuItemSecondLevel);
     }
 
-
     private String printMenuItemSecondLevel(MenuItem item) {
-        if (item instanceof MenuItemLeaf) {
+        if (item.getItems().isEmpty()) {
             return " - " + item.toString();
         }
         return "";

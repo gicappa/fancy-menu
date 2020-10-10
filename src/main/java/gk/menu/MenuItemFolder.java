@@ -16,7 +16,12 @@ public class MenuItemFolder implements MenuItem {
 
     @Override
     public String toString() {
-        return " + " + folder + (children.isEmpty() ? "" : "\n");
+        if (children.isEmpty()) {
+            return folder;
+        } else {
+            return " + " + folder + "\n";
+        }
+
     }
 
     public void addItem(MenuItem menuItemLeaf) {
