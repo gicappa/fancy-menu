@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MenuItemFolder implements MenuItem {
     private final String folder;
-    private final List<MenuItem> child = new ArrayList<>();
+    private final List<MenuItem> children = new ArrayList<>();
 
     public MenuItemFolder(String folder) {
         this.folder = folder;
@@ -17,10 +17,10 @@ public class MenuItemFolder implements MenuItem {
     }
 
     public void addItem(MenuItemLeaf menuItemLeaf) {
-        child.add(menuItemLeaf);
+        children.add(menuItemLeaf);
     }
 
     public List<MenuItem> getItems() {
-        return child;
+        return children;
     }
 }

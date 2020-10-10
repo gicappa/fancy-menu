@@ -26,10 +26,17 @@ public class Menu {
         } else {
             MenuItemFolder folder = (MenuItemFolder) item;
 
-            return folder.toString() + (folder.getItems().isEmpty() ? "" : "\n" +
-                    folder.getItems().stream().map(this::printMenuItemSecondLevel)
-                            .collect(joining("\n")));
+            return folder.toString() + printChildren(folder);
         }
+    }
+
+    private String printChildren(MenuItemFolder folder) {
+        return folder.getItems().isEmpty() ? "" : "\n" + traverse(folder);
+    }
+
+    private String traverse(MenuItemFolder folder) {
+        return folder.getItems().stream().map(this::printMenuItemSecondLevel)
+                .collect(joining("\n"));
     }
 
     private String printMenuItemSecondLevel(MenuItem item) {
