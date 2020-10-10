@@ -21,13 +21,7 @@ public class Menu {
     }
 
     private String printMenuItem(MenuItem item) {
-        if (item instanceof MenuItemLeaf) {
-            return item.toString();
-        } else {
-            MenuItemFolder folder = (MenuItemFolder) item;
-
-            return folder.toString() + printChildren(folder);
-        }
+            return item.toString() + printChildren(item);
     }
 
     private String printChildren(MenuItem folder) {
