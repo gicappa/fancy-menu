@@ -19,7 +19,7 @@ public class MenuItemFolder implements MenuItem {
         return " + " + folder + (children.isEmpty() ? "" : "\n");
     }
 
-    public void addItem(MenuItemLeaf menuItemLeaf) {
+    public void addItem(MenuItem menuItemLeaf) {
         children.add(menuItemLeaf);
     }
 
