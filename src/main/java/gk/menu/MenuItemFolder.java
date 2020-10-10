@@ -20,6 +20,7 @@ public class MenuItemFolder implements MenuItem {
         children.add(menuItemLeaf);
     }
 
+    @Override
     public List<MenuItem> getItems() {
         return children;
     }

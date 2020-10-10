@@ -30,11 +30,11 @@ public class Menu {
         }
     }
 
-    private String printChildren(MenuItemFolder folder) {
+    private String printChildren(MenuItem folder) {
         return folder.getItems().isEmpty() ? "" : "\n" + traverse(folder);
     }
 
-    private String traverse(MenuItemFolder folder) {
+    private String traverse(MenuItem folder) {
         return folder.getItems().stream().map(this::printMenuItemSecondLevel)
                 .collect(joining("\n"));
     }
