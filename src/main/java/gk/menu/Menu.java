@@ -12,9 +12,7 @@ public class Menu {
 
     @Override
     public String toString() {
-        return root.getItems().stream()
-                .map(this::printMenuItem)
-                .collect(joining("\n"));
+        return root.traverse(this::printMenuItem);
     }
 
     private String printMenuItem(MenuItem item) {
