@@ -12,12 +12,31 @@ public class Menu {
     public void addItem(MenuItem name) {
         this.names.add(name);
     }
-    
+
     @Override
     public String toString() {
         return names.stream()
-                .map(MenuItem::toString)
+                .map(this::printMenuItem)
                 .collect(joining("\n"));
+    }
+
+    private String printMenuItem(MenuItem item) {
+        if (item instanceof MenuItemLeaf) {
+            return item.toString();
+        } else {
+            MenuItemFolder folder = (MenuItemFolder) item;
+
+            return folder.toString() + (folder.getItems().isEmpty() ? "" : "\n" +
+                    folder.getItems().stream().map(this::printMenuItemSecondLevel)
+                            .collect(joining("\n")));
+        }
+    }
+
+    private String printMenuItemSecondLevel(MenuItem item) {
+        if (item instanceof MenuItemLeaf) {
+            return " - " + item.toString();
+        }
+        return "";
     }
 
 }
