@@ -2,6 +2,7 @@ package gk.menu;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 
 public class MenuItemLeaf implements MenuItem {
     private final String name;
@@ -19,4 +20,10 @@ public class MenuItemLeaf implements MenuItem {
     public List<MenuItem> getItems() {
         return Collections.emptyList();
     }
+
+    @Override
+    public String traverse(Function<MenuItem, String> f) {
+        return "";
+    }
+
 }

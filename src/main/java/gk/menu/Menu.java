@@ -15,17 +15,12 @@ public class Menu {
         return root.traverse(this::printMenuItem);
     }
 
+    private String printChildren(MenuItem item) {
+        return item.getItems().isEmpty() ? item.traverse(this::printMenuItemSecondLevel) : "\n" + item.traverse(this::printMenuItemSecondLevel);
+    }
+
     private String printMenuItem(MenuItem item) {
         return item.toString() + printChildren(item);
-    }
-
-    private String printChildren(MenuItem folder) {
-        return folder.getItems().isEmpty() ? "" : "\n" + traverse(folder);
-    }
-
-    private String traverse(MenuItem item) {
-        return item.getItems().stream().map(this::printMenuItemSecondLevel)
-                .collect(joining("\n"));
     }
 
     private String printMenuItemSecondLevel(MenuItem item) {
