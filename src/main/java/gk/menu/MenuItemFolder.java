@@ -1,14 +1,14 @@
 package gk.menu;
 
 public class MenuItemFolder implements MenuItem {
-    private final String submenu;
+    private final String folder;
 
-    public MenuItemFolder(String submenu) {
-        this.submenu = submenu;
+    public MenuItemFolder(String folder) {
+        this.folder = folder;
     }
 
     @Override
     public String toString() {
-        return submenu;
+        return " - " + folder;
     }
 }

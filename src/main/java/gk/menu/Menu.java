@@ -12,13 +12,12 @@ public class Menu {
     public void addItem(MenuItem name) {
         this.names.add(name);
     }
-
+    
     @Override
     public String toString() {
-        return names.stream().map(MenuItem::toString).collect(joining("\n"));
+        return names.stream()
+                .map(MenuItem::toString)
+                .collect(joining("\n"));
     }
 
-    public void addItemFolder(MenuItemFolder itemFolder) {
-
-    }
 }
