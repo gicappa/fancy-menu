@@ -1,5 +1,8 @@
 version: 2.1
-
+jobs:
+  build:
+    docker: 
+      - image: circleci/openjdk:11.0.3-jdk-stretch 
 orbs:
   maven: circleci/maven@0.0.12
 
