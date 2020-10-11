@@ -2,18 +2,18 @@ package gk.menu;
 
 import static java.util.stream.Collectors.joining;
 
-public class PlainTextWriter {
+public class TextMenuWriter implements MenuWriter {
 
-
-    public String printItem(MenuItem item, int level) {
+    @Override
+    public String writeItem(MenuItem item, int level) {
         return prefix(level) +
                 printLabel(item, level) +
                 item.visit(mi -> mi.getItems().stream()
-                        .map(i -> printItem(i, level + 1))
+                        .map(i -> writeItem(i, level + 1))
                         .collect(joining("\n")));
     }
 
-    public String printLabel(MenuItem item, int level) {
+    private String printLabel(MenuItem item, int level) {
         if (level == 0)
             return "";
 
@@ -24,7 +24,7 @@ public class PlainTextWriter {
         }
     }
 
-    public String label(MenuItem item) {
+    private String label(MenuItem item) {
         return item.getName() + (item.getUrl() == null ? "" : " [" + item.getUrl() + "]");
     }
 

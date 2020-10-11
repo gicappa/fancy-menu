@@ -4,9 +4,9 @@ public class Menu {
 
     private final MenuItem root = new MenuItem("");
 
-    private final PlainTextWriter writer;
+    private final TextMenuWriter writer;
 
-    public Menu(PlainTextWriter writer) {
+    public Menu(TextMenuWriter writer) {
         this.writer = writer;
     }
 
@@ -15,6 +15,6 @@ public class Menu {
     }
 
     public String serialize() {
-        return writer.printItem(root, 0);
+        return writer.writeItem(root, 0);
     }
 }
