@@ -11,7 +11,7 @@ public class PrintingTextMenuTest {
 
     @Before
     public void before() {
-        menu = new Menu();
+        menu = new Menu(new PlainTextWriter());
     }
 
     @Test

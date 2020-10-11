@@ -5,7 +5,7 @@ package gk.menu;
  */
 public class App {
     public static void main(String[] args) {
-        Menu menu = new Menu();
+        Menu menu = new Menu(new PlainTextWriter());
         menu.addItem(new MenuItem("item1"));
         menu.addItem(new MenuItem("item2"));
 

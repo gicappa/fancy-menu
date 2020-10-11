@@ -4,7 +4,11 @@ public class Menu {
 
     private final MenuItem root = new MenuItem("");
 
-    private final PlainTextWriter writer = new PlainTextWriter();
+    private final PlainTextWriter writer;
+
+    public Menu(PlainTextWriter writer) {
+        this.writer = writer;
+    }
 
     public void addItem(MenuItem item) {
         root.addItem(item);
