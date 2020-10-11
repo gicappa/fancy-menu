@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/gicappa/fancy-menu.svg?style=shield&circle-token=<YOUR_STATUS_API_TOKEN>)](https://circleci.com/gh/gicappa/fancy-menu)
+
 # Fancy Menu
 
 In a nerdy friends chat I've been asked how would I design the code of tree structured menu item. I gave some advices citing some design patterns and some ideas I had in mind, and that was it. But during the night I start to think: "would I be able to put in practice my advices or this is one of the cases in which the wonderful ideas we have in mind are craching again the reality details we can't think beforehand?". So I tried and this is the result of what I did at my best.
