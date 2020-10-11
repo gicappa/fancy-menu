@@ -21,6 +21,6 @@ public class Menu {
         if (level <= 0)
             return "";
 
-        return " - ";
+        return "   ".repeat(level);
     }
 }

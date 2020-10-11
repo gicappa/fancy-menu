@@ -56,6 +56,27 @@ public class MenuTest {
 
         assertEquals("item1\nitem2\n + folder1\n - sub item1\n - sub item2", menu.toString());
     }
+
+    @Test
+    public void it_should_return_a_three_nested_level_menu() {
+        menu.addItem(new MenuItem("item Y"));
+        menu.addItem(new MenuItem("item Z"));
+
+        MenuItem containerOne = new MenuItem("containerOne");
+        containerOne.addItem(new MenuItem("item one A"));
+        containerOne.addItem(new MenuItem("item one B"));
+
+
+        MenuItem containerTwo = new MenuItem("containerTwo");
+        containerTwo.addItem(new MenuItem("item two C"));
+        containerTwo.addItem(new MenuItem("item two D"));
+        containerOne.addItem(containerTwo);
+
+        menu.addItem(containerOne);
+
+        assertEquals("item Y\nitem Z\n + containerOne\n   item one A\n   item one B" +
+                "\n    + containerTwo\n      item two C\n      item two D", menu.toString());
+    }
 }
 
 
