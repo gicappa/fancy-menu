@@ -10,22 +10,17 @@ public class Menu {
 
     @Override
     public String toString() {
-        return root.traverse(this::printMenuItem);
+        return root.traverse(i -> printItem(i, 0));
     }
 
-    private String printMenuItem(MenuItem item) {
-        return item.toString() + printChildren(item);
+    private String printItem(MenuItem item, int level) {
+        return prefix(level) + item.toString() + item.traverse(i -> printItem(i, level + 1));
     }
 
-    private String printChildren(MenuItem item) {
-        return item.traverse(this::printMenuItemSecondLevel);
-    }
+    private String prefix(int level) {
+        if (level <= 0)
+            return "";
 
-    private String printMenuItemSecondLevel(MenuItem item) {
-        if (item.getItems().isEmpty()) {
-            return " - " + item.toString();
-        }
-        return "";
+        return " - ";
     }
-
 }
