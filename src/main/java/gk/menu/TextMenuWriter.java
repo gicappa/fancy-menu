@@ -28,8 +28,7 @@ public class TextMenuWriter implements MenuWriter {
         return item.getName() + (item.getUrl() == null ? "" : " [" + item.getUrl() + "]");
     }
 
-
-    public String prefix(int level) {
+    private String prefix(int level) {
         if (level <= 1)
             return "";
 
