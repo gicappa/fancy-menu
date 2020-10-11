@@ -54,7 +54,7 @@ public class MenuTest {
 
         menu.addItem(folder1);
 
-        assertEquals("item1\nitem2\n + folder1\n - sub item1\n - sub item2", menu.toString());
+        assertEquals("item1\nitem2\n + folder1\n   sub item1\n   sub item2", menu.toString());
     }
 
     @Test
@@ -77,6 +77,15 @@ public class MenuTest {
         assertEquals("item Y\nitem Z\n + containerOne\n   item one A\n   item one B" +
                 "\n    + containerTwo\n      item two C\n      item two D", menu.toString());
     }
+
+    @Test
+    public void it_should_return_two_menu_item_name_with_their_urls() {
+        menu.addItem(new MenuItem("item1", "http://test.org/pippo"));
+        menu.addItem(new MenuItem("item2"));
+
+        assertEquals("item1 [http://test.org/pippo]\nitem2", menu.toString());
+    }
+
 }
 
 

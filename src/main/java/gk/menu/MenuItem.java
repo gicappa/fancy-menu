@@ -7,11 +7,17 @@ import java.util.function.Function;
 import static java.util.stream.Collectors.joining;
 
 public class MenuItem {
-    private final String folder;
+    private final String name;
+    private String url;
     private final List<MenuItem> children = new ArrayList<>();
 
-    public MenuItem(String folder) {
-        this.folder = folder;
+    public MenuItem(String name) {
+        this.name = name;
+    }
+
+    public MenuItem(String name, String url) {
+        this.name = name;
+        this.url = url;
     }
 
     public void addItem(MenuItem item) {
@@ -30,10 +36,13 @@ public class MenuItem {
     @Override
     public String toString() {
         if (children.isEmpty()) {
-            return folder;
+            return label();
         } else {
-            return " + " + folder + "\n";
+            return " + " + label() + "\n";
         }
+    }
 
+    public String label() {
+        return name + (url == null ? "" : " [" + url + "]");
     }
 }
