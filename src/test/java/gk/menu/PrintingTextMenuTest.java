@@ -36,15 +36,6 @@ public class PrintingTextMenuTest {
     }
 
     @Test
-    public void it_should_return_two_menu_item() {
-        menu.addItem(new MenuItem("item1"));
-        menu.addItem(new MenuItem("item2"));
-        menu.addItem(new MenuItem("folder1"));
-
-        assertEquals("item1\nitem2\nfolder1", menu.serialize());
-    }
-
-    @Test
     public void it_should_return_two_menu_item_and_one_subfolder() {
         menu.addItem(new MenuItem("item1"));
         menu.addItem(new MenuItem("item2"));
