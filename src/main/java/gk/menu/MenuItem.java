@@ -7,9 +7,9 @@ import java.util.function.Function;
 import static java.util.stream.Collectors.joining;
 
 public class MenuItem {
+    private final List<MenuItem> children = new ArrayList<>();
     private final String name;
     private String url;
-    private final List<MenuItem> children = new ArrayList<>();
 
     public MenuItem(String name) {
         this.name = name;
@@ -33,8 +33,7 @@ public class MenuItem {
                 .collect(joining("\n"));
     }
 
-    @Override
-    public String toString() {
+    public String printItem() {
         if (children.isEmpty()) {
             return label();
         } else {
@@ -44,5 +43,10 @@ public class MenuItem {
 
     public String label() {
         return name + (url == null ? "" : " [" + url + "]");
+    }
+
+    @Override
+    public String toString() {
+        return printItem();
     }
 }

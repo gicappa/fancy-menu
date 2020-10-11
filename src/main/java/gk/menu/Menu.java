@@ -14,7 +14,7 @@ public class Menu {
     }
 
     private String printItem(MenuItem item, int level) {
-        return prefix(level) + item.toString() + item.traverse(i -> printItem(i, level + 1));
+        return prefix(level) + item.printItem() + item.traverse(i -> printItem(i, level + 1));
     }
 
     private String prefix(int level) {
