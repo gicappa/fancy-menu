@@ -1,5 +1,7 @@
 package gk.menu;
 
+import static java.util.stream.Collectors.joining;
+
 public class Menu {
 
     private final MenuItem root = new MenuItem("");
@@ -10,11 +12,11 @@ public class Menu {
 
     @Override
     public String toString() {
-        return root.traverse(i -> printItem(i, 0));
+        return root.visit(mi -> mi.getItems().stream().map(i -> printItem(i, 0)).collect(joining("\n")));
     }
 
     private String printItem(MenuItem item, int level) {
-        return prefix(level) + item.printItem() + item.traverse(i -> printItem(i, level + 1));
+        return prefix(level) + item.printItem() + item.visit(mi -> mi.getItems().stream().map(i -> printItem(i, level + 1)).collect(joining("\n")));
     }
 
     private String prefix(int level) {

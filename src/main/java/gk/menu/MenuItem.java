@@ -28,9 +28,8 @@ public class MenuItem {
         return children;
     }
 
-    public String traverse(Function<MenuItem, String> f) {
-        return getItems().stream().map(f)
-                .collect(joining("\n"));
+    public String visit(Function<MenuItem, String> v) {
+        return v.apply(this);
     }
 
     public String printItem() {
