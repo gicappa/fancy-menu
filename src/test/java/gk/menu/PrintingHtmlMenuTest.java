@@ -12,20 +12,12 @@ public class PrintingHtmlMenuTest {
 
     @Before
     public void before() {
-        menu = new Menu(new TextMenuWriter());
+        menu = new Menu(new HtmlMenuWriter());
     }
 
     @Test
     public void it_should_return_an_empty_menu() {
         assertEquals("", menu.serialize());
-    }
-
-    @Test
-    @Ignore
-    public void it_should_return_a_menu_item_name() {
-        menu.addItem(new MenuItem("my item name"));
-
-        assertEquals("<ul><li>my item name</li></ul>", menu.toString());
     }
 
 }

@@ -4,9 +4,9 @@ public class Menu {
 
     private final MenuItem root = new MenuItem("");
 
-    private final TextMenuWriter writer;
+    private final MenuWriter writer;
 
-    public Menu(TextMenuWriter writer) {
+    public Menu(MenuWriter writer) {
         this.writer = writer;
     }
 
