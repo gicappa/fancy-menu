@@ -35,6 +35,20 @@ public class PrintingHtmlMenuTest {
         assertEquals("<ul><li>item1</li><li>item2</li></ul>", menu.serialize());
     }
 
+    @Test
+    public void it_should_return_two_menu_item_and_one_subfolder() {
+        menu.addItem(new MenuItem("item1"));
+
+        MenuItem folder1 = new MenuItem("folder1");
+        folder1.addItem(new MenuItem("sub item1"));
+
+        menu.addItem(folder1);
+
+        assertEquals("<ul><li>item1</li><li>folder1<ul><li>sub item1</li></ul></li></ul>", menu.serialize());
+    }
+
+
+
 }
 
 
