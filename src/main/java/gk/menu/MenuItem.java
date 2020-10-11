@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-import static java.util.stream.Collectors.joining;
-
 public class MenuItem {
     private final List<MenuItem> children = new ArrayList<>();
     private final String name;
@@ -32,20 +30,16 @@ public class MenuItem {
         return v.apply(this);
     }
 
-    public String printItem() {
-        if (children.isEmpty()) {
-            return label();
-        } else {
-            return " + " + label() + "\n";
-        }
+    public String getName() {
+        return name;
     }
 
-    public String label() {
-        return name + (url == null ? "" : " [" + url + "]");
+    public String getUrl() {
+        return url;
     }
 
     @Override
     public String toString() {
-        return printItem();
+        return this.name + this.children;
     }
 }

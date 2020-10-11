@@ -12,17 +12,37 @@ public class Menu {
 
     @Override
     public String toString() {
-        return root.visit(mi -> mi.getItems().stream().map(i -> printItem(i, 0)).collect(joining("\n")));
+        return printItem(root, 0);
     }
 
     private String printItem(MenuItem item, int level) {
-        return prefix(level) + item.printItem() + item.visit(mi -> mi.getItems().stream().map(i -> printItem(i, level + 1)).collect(joining("\n")));
+        return prefix(level) +
+                printLabel(item, level) +
+                item.visit(mi -> mi.getItems().stream()
+                        .map(i -> printItem(i, level + 1))
+                        .collect(joining("\n")));
     }
 
-    private String prefix(int level) {
-        if (level <= 0)
+    private String printLabel(MenuItem item, int level) {
+        if (level == 0)
             return "";
 
-        return "   ".repeat(level);
+        if (item.getItems().isEmpty()) {
+            return label(item);
+        } else {
+            return " + " + label(item) + "\n";
+        }
+    }
+
+    public String label(MenuItem item) {
+        return item.getName() + (item.getUrl() == null ? "" : " [" + item.getUrl() + "]");
+    }
+
+
+    private String prefix(int level) {
+        if (level <= 1)
+            return "";
+
+        return "   ".repeat(level - 1);
     }
 }
