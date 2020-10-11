@@ -27,6 +27,14 @@ public class PrintingHtmlMenuTest {
         assertEquals("<ul><li>my item name</li></ul>", menu.serialize());
     }
 
+    @Test
+    public void it_should_return_two_menu_item_name() {
+        menu.addItem(new MenuItem("item1"));
+        menu.addItem(new MenuItem("item2"));
+
+        assertEquals("<ul><li>item1</li><li>item2</li></ul>", menu.serialize());
+    }
+
 }
 
 
