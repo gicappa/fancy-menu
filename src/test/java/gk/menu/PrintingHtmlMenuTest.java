@@ -20,6 +20,13 @@ public class PrintingHtmlMenuTest {
         assertEquals("", menu.serialize());
     }
 
+    @Test
+    public void it_should_return_a_menu_item_name() {
+        menu.addItem(new MenuItem("my item name"));
+
+        assertEquals("<ul><li>my item name</li></ul>", menu.serialize());
+    }
+
 }
 
 
