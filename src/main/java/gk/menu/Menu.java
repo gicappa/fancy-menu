@@ -10,8 +10,7 @@ public class Menu {
         root.addItem(item);
     }
 
-    @Override
-    public String toString() {
+    public String serialize() {
         return writer.printItem(root, 0);
     }
 }

@@ -17,7 +17,7 @@ public class PrintingHtmlMenuTest {
 
     @Test
     public void it_should_return_an_empty_menu() {
-        assertEquals("", menu.toString());
+        assertEquals("", menu.serialize());
     }
 
     @Test
