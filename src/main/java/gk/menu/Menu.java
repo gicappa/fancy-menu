@@ -2,7 +2,7 @@ package gk.menu;
 
 public class Menu {
 
-    private final MenuItemFolder root = new MenuItemFolder("");
+    private final MenuItem root = new MenuItem("");
 
     public void addItem(MenuItem item) {
         root.addItem(item);
