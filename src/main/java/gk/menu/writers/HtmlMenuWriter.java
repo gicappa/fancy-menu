@@ -1,4 +1,7 @@
-package gk.menu;
+package gk.menu.writers;
+
+import gk.menu.MenuItem;
+import gk.menu.MenuWriter;
 
 import static java.util.stream.Collectors.joining;
 

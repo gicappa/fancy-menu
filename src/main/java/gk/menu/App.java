@@ -1,5 +1,7 @@
 package gk.menu;
 
+import gk.menu.writers.TextMenuWriter;
+
 /**
  * Hello world!
  */

@@ -1,5 +1,6 @@
 package gk.menu;
 
+import gk.menu.writers.TextMenuWriter;
 import org.junit.Before;
 import org.junit.Test;
 
