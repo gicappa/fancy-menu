@@ -7,17 +7,17 @@ public class HtmlMenuWriter implements MenuWriter {
 
     @Override
     public String writeItem(MenuItem item, int level) {
-        StringBuilder result = new StringBuilder();
+        String result = "";
 
         if (!item.getName().isBlank())
-            result.append("<li>").append(item.getName());
+            result += "<li>" + item.getName();
 
-        result.append(writeChildren(item, level));
+        result += writeChildren(item, level);
 
         if (!item.getName().isBlank())
-            result.append("</li>");
+            result += "</li>";
 
-        return result.toString();
+        return result;
 
     }
 
