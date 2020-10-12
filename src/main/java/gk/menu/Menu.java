@@ -2,7 +2,7 @@ package gk.menu;
 
 public class Menu {
 
-    private final MenuItem root = new MenuItem("");
+    private final MenuItem root = new RootItem();
 
     private final MenuWriter writer;
 
