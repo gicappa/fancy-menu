@@ -24,7 +24,7 @@ public class PrintingTextMenuTest {
     public void it_should_return_a_menu_item_name() {
         menu.addItem(new MenuItem("my item name"));
 
-        assertEquals("my item name", menu.serialize());
+        assertEquals("my item name\n", menu.serialize());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class PrintingTextMenuTest {
         menu.addItem(new MenuItem("item1"));
         menu.addItem(new MenuItem("item2"));
 
-        assertEquals("item1\nitem2", menu.serialize());
+        assertEquals("item1\nitem2\n", menu.serialize());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class PrintingTextMenuTest {
 
         menu.addItem(folder1);
 
-        assertEquals("item1\nitem2\n + folder1\n   sub item1\n   sub item2", menu.serialize());
+        assertEquals("item1\nitem2\n + folder1\n   sub item1\n   sub item2\n", menu.serialize());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class PrintingTextMenuTest {
         menu.addItem(containerOne);
 
         assertEquals("item Y\nitem Z\n + containerOne\n   item one A\n   item one B" +
-                "\n    + containerTwo\n      item two C\n      item two D", menu.serialize());
+                "\n    + containerTwo\n      item two C\n      item two D\n", menu.serialize());
     }
 
     @Test
@@ -75,7 +75,7 @@ public class PrintingTextMenuTest {
         menu.addItem(new MenuItem("item1", "http://test.org/pippo"));
         menu.addItem(new MenuItem("item2"));
 
-        assertEquals("item1 [http://test.org/pippo]\nitem2", menu.serialize());
+        assertEquals("item1 [http://test.org/pippo]\nitem2\n", menu.serialize());
     }
 
 }

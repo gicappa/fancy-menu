@@ -3,39 +3,42 @@ package gk.menu.writers;
 import gk.menu.MenuItem;
 import gk.menu.MenuWriter;
 
-import static java.util.stream.Collectors.joining;
-
 public class TextMenuWriter implements MenuWriter {
-
     @Override
     public String writeItem(MenuItem item, int level) {
-        return prefix(level) +
-                printLabel(item, level) +
-                item.visit(mi -> mi.getItems().stream()
-                        .map(i -> writeItem(i, level + 1))
-                        .collect(joining("\n")));
-    }
 
-    private String printLabel(MenuItem item, int level) {
-        if (level == 0)
-            return "";
-
-        if (item.getItems().isEmpty()) {
-            return label(item);
-        } else {
-            return " + " + label(item) + "\n";
+        // This a RootMenuItem
+        if (item.getName().isBlank()) {
+            return writeChildren(item, level);
         }
+
+        // This a normal Container Menu Item or a Leaf Menu Item
+        if (!item.getItems().isEmpty())
+            return padding(level - 1) + " + " + writeItemName(item) + "\n" + writeChildren(item, level);
+
+        return padding(level - 1) + writeItemName(item) + "\n" + writeChildren(item, level);
     }
 
-    private String label(MenuItem item) {
+    private String writeItemName(MenuItem item) {
         return item.getName() + (item.getUrl() == null ? "" : " [" + item.getUrl() + "]");
     }
 
-    private String prefix(int level) {
-        if (level <= 1)
+    private String writeChildren(MenuItem item, int level) {
+        // This is a Leaf Menu Item
+        if (item.getItems().isEmpty()) {
             return "";
+        }
 
-        return "   ".repeat(level - 1);
+        StringBuilder child = new StringBuilder();
+
+        for (MenuItem i : item.getItems()) {
+            child.append(writeItem(i, level + 1));
+        }
+
+        return child.toString();
     }
 
+    private String padding(int level) {
+        return "   ".repeat(level);
+    }
 }
