@@ -4,6 +4,7 @@ import gk.menu.MenuItem;
 import gk.menu.MenuWriter;
 
 public class TextMenuWriter implements MenuWriter {
+
     @Override
     public String writeItem(MenuItem item, int level) {
 

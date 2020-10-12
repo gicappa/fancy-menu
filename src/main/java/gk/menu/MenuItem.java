@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+// Design checks: get name, get url and maybe also getItems are exposing
+// the internal of the class. Visitor pattern should avoid them by passing
+// them to the visitor
 public class MenuItem {
     private final List<MenuItem> children = new ArrayList<>();
     private final String name;
