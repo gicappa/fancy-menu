@@ -5,27 +5,39 @@ import gk.menu.MenuWriter;
 
 public class HtmlMenuWriter implements MenuWriter {
 
-    private String htmlMenuItem(MenuItem item, int level) {
+    @Override
+    public String writeItem(MenuItem item, int level) {
         StringBuilder result = new StringBuilder();
+
         if (!item.getName().isBlank())
             result.append("<li>").append(item.getName());
 
-        if (!item.getItems().isEmpty()) {
-            result.append("<ul>");
-            for (MenuItem i : item.getItems()) {
-                result.append(htmlMenuItem(i, level + 1));
-            }
-            result.append("</ul>");
-        }
+        result.append(writeChildren(item, level));
+
         if (!item.getName().isBlank())
             result.append("</li>");
+
         return result.toString();
+
     }
 
-    @Override
-    public String writeItem(MenuItem item, int level) {
+    private String writeChildren(MenuItem item, int level) {
+        if (item.getItems().isEmpty()) {
+            return "";
+        }
 
-        return htmlMenuItem(item, level);
+        StringBuilder htmlItem = new StringBuilder();
+
+        htmlItem.append("<ul>");
+
+        for (MenuItem i : item.getItems()) {
+            htmlItem.append(writeItem(i, level + 1));
+        }
+
+        htmlItem.append("</ul>");
+
+        return htmlItem.toString();
     }
+
 }
 
