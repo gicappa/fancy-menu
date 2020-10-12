@@ -47,8 +47,6 @@ public class PrintingHtmlMenuTest {
         assertEquals("<ul><li>item1</li><li>folder1<ul><li>sub item1</li></ul></li></ul>", menu.serialize());
     }
 
-
-
 }
 
 
