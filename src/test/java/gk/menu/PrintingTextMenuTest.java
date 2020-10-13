@@ -1,6 +1,6 @@
 package gk.menu;
 
-import gk.menu.writers.TextMenuWriter;
+import gk.menu.writers.TextMenuSerializer;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class PrintingTextMenuTest {
 
     @Before
     public void before() {
-        menu = new Menu(new TextMenuWriter());
+        menu = new Menu(new TextMenuSerializer());
     }
 
     @Test

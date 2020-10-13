@@ -1,6 +1,6 @@
 package gk.menu;
 
-import gk.menu.writers.HtmlMenuWriter;
+import gk.menu.writers.HtmlMenuSerializer;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class PrintingHtmlMenuTest {
 
     @Before
     public void before() {
-        menu = new Menu(new HtmlMenuWriter(new Traversal()));
+        menu = new Menu(new HtmlMenuSerializer(new Traversal()));
     }
 
     @Test

@@ -10,6 +10,6 @@ import java.util.function.Function;
 // It could ease the design to create a strategy
 // that passes the correct visitor ItemWriter to the tree and after
 // collecting all the results joining them in a single string
-public interface MenuWriter {
-    String writeItem(MenuItem item);
+public interface MenuSerializer {
+    String serializeItem(MenuItem item);
 }

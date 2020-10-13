@@ -1,7 +1,6 @@
 package gk.menu;
 
-import gk.menu.writers.HtmlMenuWriter;
-import gk.menu.writers.TextMenuWriter;
+import gk.menu.writers.HtmlMenuSerializer;
 
 /**
  * Hello world!
@@ -9,7 +8,7 @@ import gk.menu.writers.TextMenuWriter;
 public class App {
     public static void main(String[] args) {
         Traversal t = new Traversal();
-        Menu menu = new Menu(new HtmlMenuWriter(t));
+        Menu menu = new Menu(new HtmlMenuSerializer(t));
         menu.addItem(new MenuItem("item1"));
         menu.addItem(new MenuItem("item2"));
 

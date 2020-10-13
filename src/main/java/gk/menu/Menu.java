@@ -3,10 +3,10 @@ package gk.menu;
 public class Menu {
 
     private final MenuItem root = new RootItem();
-    private final MenuWriter writer;
+    private final MenuSerializer serializer;
 
-    public Menu(MenuWriter writer) {
-        this.writer = writer;
+    public Menu(MenuSerializer serializer) {
+        this.serializer = serializer;
     }
 
     public void addItem(MenuItem item) {
@@ -14,6 +14,6 @@ public class Menu {
     }
 
     public String serialize() {
-        return writer.writeItem(root);
+        return serializer.serializeItem(root);
     }
 }
