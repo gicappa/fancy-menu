@@ -3,7 +3,6 @@ package gk.menu;
 public class Menu {
 
     private final MenuItem root = new RootItem();
-
     private final MenuWriter writer;
 
     public Menu(MenuWriter writer) {
@@ -15,6 +14,6 @@ public class Menu {
     }
 
     public String serialize() {
-        return writer.writeItem(root, 0);
+        return writer.writeItem(root);
     }
 }

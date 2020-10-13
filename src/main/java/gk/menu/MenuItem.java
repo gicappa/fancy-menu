@@ -43,6 +43,6 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return this.name + this.children;
+        return this.name;
     }
 }

@@ -1,5 +1,8 @@
 package gk.menu;
 
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
 // The writers have specific code for:
 // - root folder
 // - leaf folder
@@ -8,5 +11,5 @@ package gk.menu;
 // that passes the correct visitor ItemWriter to the tree and after
 // collecting all the results joining them in a single string
 public interface MenuWriter {
-    String writeItem(MenuItem item, int level);
+    String writeItem(MenuItem item);
 }

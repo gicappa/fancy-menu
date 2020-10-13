@@ -6,6 +6,10 @@ import gk.menu.MenuWriter;
 public class TextMenuWriter implements MenuWriter {
 
     @Override
+    public String writeItem(MenuItem item) {
+        return writeItem(item, 0);
+    }
+
     public String writeItem(MenuItem item, int level) {
 
         // This a RootMenuItem

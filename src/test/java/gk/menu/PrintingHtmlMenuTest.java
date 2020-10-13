@@ -12,7 +12,7 @@ public class PrintingHtmlMenuTest {
 
     @Before
     public void before() {
-        menu = new Menu(new HtmlMenuWriter());
+        menu = new Menu(new HtmlMenuWriter(new Traversal()));
     }
 
     @Test
