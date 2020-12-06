@@ -2,15 +2,16 @@ package gk.menu;
 
 import gk.menu.writers.HtmlMenuSerializer;
 
+import javax.swing.text.html.HTMLEditorKit;
+
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        Traversal t = new Traversal();
-        Menu menu = new Menu(new HtmlMenuSerializer(t));
-        menu.addItem(new MenuItem("item1"));
-        menu.addItem(new MenuItem("item2"));
+        MenuItem root = new RootItem();
+        root.addItem(new MenuItem("item1"));
+        root.addItem(new MenuItem("item2"));
 
         MenuItem folder1 = new MenuItem("folder1");
         MenuItem sub_item1 = new MenuItem("sub item1");
@@ -22,8 +23,10 @@ public class App {
         folder2.addItem(new MenuItem("sub item2"));
 
         sub_item1.addItem(folder2);
-        menu.addItem(folder1);
+        root.addItem(folder1);
 
-        System.out.println(menu.serialize());
+        HtmlMenuSerializer serializer = new HtmlMenuSerializer(new Traversal());
+
+        System.out.println(serializer.serializeItem(root));
     }
 }

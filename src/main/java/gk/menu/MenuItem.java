@@ -2,6 +2,7 @@ package gk.menu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 // Design checks: get name, get url and maybe also getItems are exposing
@@ -29,8 +30,8 @@ public class MenuItem {
         return children;
     }
 
-    public String visit(Function<MenuItem, String> v) {
-        return v.apply(this);
+    public String visit(BiFunction<String, List<MenuItem>, String> v) {
+        return v.apply(this.name, this.children);
     }
 
     public String getName() {

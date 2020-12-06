@@ -2,6 +2,7 @@ package gk.menu.writers;
 
 import gk.menu.MenuItem;
 import gk.menu.MenuSerializer;
+import gk.menu.RootItem;
 
 public class TextMenuSerializer implements MenuSerializer {
 
@@ -12,8 +13,7 @@ public class TextMenuSerializer implements MenuSerializer {
 
     public String serializeItem(MenuItem item, int level) {
 
-        // This a RootMenuItem
-        if (item.getName().isBlank()) {
+        if (item instanceof RootItem) {
             return serializeChildren(item, level);
         }
 

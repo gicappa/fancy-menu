@@ -2,6 +2,7 @@ package gk.menu.writers;
 
 import gk.menu.MenuItem;
 import gk.menu.MenuSerializer;
+import gk.menu.RootItem;
 import gk.menu.Traversal;
 
 public class HtmlMenuSerializer implements MenuSerializer {
@@ -13,10 +14,10 @@ public class HtmlMenuSerializer implements MenuSerializer {
     }
 
     public String serializeItem(MenuItem item) {
-        if (item.getName().isBlank())
-            return serializeChildren(traversal.traverse(item, this::serializeItem));
+        if (item instanceof RootItem)
+            return serializeChildren(traversal.traverse(item.getItems(), this::serializeItem));
 
-        return "<li>" + item.getName() + serializeChildren(traversal.traverse(item, this::serializeItem)) + "</li>";
+        return item.visit((n, c) -> "<li>" + n + serializeChildren(traversal.traverse(c, this::serializeItem)) + "</li>");
     }
 
     private String serializeChildren(String traverse) {
